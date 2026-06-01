@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casio fx-991ARX - Barça Edition</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* خلفية الموقع الأساسية تدمج ألوان البرشا مع الشعار */
+            background: linear-gradient(135deg, rgba(165, 0, 68, 0.4), rgba(0, 77, 152, 0.4)), 
+                        url('https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/1200px-FC_Barcelona_%28crest%29.svg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* جسم الحاسبة العلمي الاحترافي مع دمج شعار مائي في الخلفية */
+        .casio-body {
+            background: linear-gradient(rgba(46, 49, 54, 0.93), rgba(30, 32, 34, 0.95)),
+                        url('https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/1200px-FC_Barcelona_%28crest%29.svg.png');
+            background-size: 75%;
+            background-repeat: no-repeat;
+            background-position: center 60%;
+            width: 100%;
+            max-width: 360px;
+            padding: 25px 20px;
+            border-radius: 20px;
+            border: 4px solid #151618;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7),
+                        inset 0 2px 4px rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            color: #d1d5db;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            letter-spacing: 1.5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+
+        .fcb-tag {
+            color: #edbb00;
+            font-size: 11px;
+            background: #a50044;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .model-name {
+            color: #9ca3af;
+            font-size: 11px;
+            margin-bottom: 15px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        /* شاشة كاسيو العلمية المتقدمة (سطرين) */
+        .casio-screen {
+            background: #9cb2a7;
+            border: 3px solid #1f2937;
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            box-shadow: inset 0 5px 8px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 85px;
+        }
+
+        /* سطر العملية الحسابية الحالية */
+        #operation-view {
+            color: rgba(17, 24, 39, 0.75);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            text-align: left;
+            min-height: 20px;
+            word-break: break-all;
+            direction: ltr;
+        }
+
+        /* سطر الناتج الرئيسي الضخم */
+        #display {
+            color: #111827;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: left;
+            word-break: break-all;
+            direction: ltr;
+        }
+
+        /* شبكة الأزرار */
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 12px 8px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.05s ease;
+            box-shadow: 0 4px #1a1b1d;
+        }
+
+        button:active {
+            box-shadow: 0 0 #1a1b1d;
+            transform: translateY(4px);
+        }
+
+        /* الصفوف العلمية (sin, cos, tan, جذر، إلخ) */
+        .sci-btn {
+            background: #374151;
+            color: #92c5de;
+            font-size: 14px;
+            padding: 8px 5px;
+        }
+
+        /* أزرار الأرقام */
+        .num-btn {
+            background: #525864;
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        /* أزرار العمليات الأساسية */
+        .op-btn {
+            background: #3f444f;
+            color: #f3f4f6;
+            font-size: 18px;
+        }
+
+        /* زر الحذف AC الكلاسيكي لكاسيو باللون البرتقالي */
+        .ac-btn {
+            background: #ea580c;
+            color: white;
+        }
+
+        /* زر مسح آخر رقم DEL */
+        .del-btn {
+            background: #d97706;
+            color: white;
+        }
+
+        /* زر يساوي الفخم بألوان برشلونة الرسمية البارزة */
+        .equal-btn {
+            background: #a50044;
+            color: #edbb00;
+            font-size: 22px;
+            grid-column: span 2;
+            border: 1px solid #7a0032;
+        }
+
+        button:hover {
+            filter: brightness(1.15);
+        }
+    </style>
+</head>
+<body>
+
+<div class="casio-body">
+    <div class="brand-name">
+        <span>CASIO</span>
+        <span class="fcb-tag">FC BARCELONA</span>
+    </div>
+    <div class="model-name">fx-991ARX CLASSWIZ - BARÇA EDITION</div>
+    
+    <div class="casio-screen">
+        <div id="operation-view"></div>
+        <div id="display">0</div>
+    </div>
+
+    <div class="buttons-grid">
+        <button class="sci-btn" onclick="sciOp('sin')">sin</button>
+        <button class="sci-btn" onclick="sciOp('cos')">cos</button>
+        <button class="sci-btn" onclick="sciOp('tan')">tan</button>
+        <button class="sci-btn" onclick="sciOp('sqrt')">√</button>
+        
+        <button class="sci-btn" onclick="sciOp('pow2')">x²</button>
+        <button class="sci-btn" onclick="appendValue('(')">(</button>
+        <button class="sci-btn" onclick="appendValue(')')">)</button>
+        <button class="op-btn" onclick="appendValue('/')">÷</button>
+        
+        <button class="num-btn" onclick="appendValue('7')">7</button>
+        <button class="num-btn" onclick="appendValue('8')">8</button>
+        <button class="num-btn" onclick="appendValue('9')">9</button>
+        <button class="op-btn" onclick="appendValue('*')">×</button>
+
+        <button class="num-btn" onclick="appendValue('4')">4</button>
+        <button class="num-btn" onclick="appendValue('5')">5</button>
+        <button class="num-btn" onclick="appendValue('6')">6</button>
+        <button class="op-btn" onclick="appendValue('-')">-</button>
+
+        <button class="num-btn" onclick="appendValue('1')">1</button>
+        <button class="num-btn" onclick="appendValue('2')">2</button>
+        <button class="num-btn" onclick="appendValue('3')">3</button>
+        <button class="op-btn" onclick="appendValue('+')">+</button>
+
+        <button class="num-btn" onclick="appendValue('0')">0</button>
+        <button class="num-btn" onclick="appendValue('.')">.</button>
+        <button class="del-btn" onclick="backspace()">DEL</button>
+        <button class="ac-btn" onclick="clearDisplay()">AC</button>
+
+        <button class="equal-btn" onclick="calculate()">=</button>
+    </div>
+</div>
+
+<script>
+    let display = document.getElementById('display');
+    let opView = document.getElementById('operation-view');
+    let isReset = true;
+
+    function appendValue(val) {
+        let currentOp = opView.innerText;
+        
+        // تحويل الرموز البرمجية لرموز مريحة للمستخدم على الشاشة
+        let showVal = val;
+        if (val === '*') showVal = '×';
+        if (val === '/') showVal = '÷';
+
+        if (isReset) {
+            opView.innerText = showVal;
+            display.innerText = '0';
+            isReset = false;
+        } else {
+            opView.innerText += showVal;
+        }
+    }
+
+    function sciOp(type) {
+        if (isReset) {
+            isReset = false;
+            opView.innerText = '';
+        }
+        if (type === 'sin') opView.innerText += 'sin(';
+        if (type === 'cos') opView.innerText += 'cos(';
+        if (type === 'tan') opView.innerText += 'tan(';
+        if (type === 'sqrt') opView.innerText += '√(';
+        if (type === 'pow2') opView.innerText += '²';
+    }
+
+    function clearDisplay() {
+        display.innerText = '0';
+        opView.innerText = '';
+        isReset = true;
+    }
+
+    function backspace() {
+        if (opView.innerText.length > 0) {
+            opView.innerText = opView.innerText.slice(0, -1);
+        }
+        if (opView.innerText === '') {
+            display.innerText = '0';
+            isReset = true;
+        }
+    }
+
+    function calculate() {
+        try {
+            let expr = opView.innerText;
+            
+            // استبدال الرموز الرياضية العادية بالبرمجية من أجل الحساب الفعلي
+            expr = expr.replace(/×/g, '*').replace(/÷/g, '/');
+            
+            // معالجة الدوال المثلثية (التحويل لـ Radians تلقائياً كالحاسبات الحقيقية)
+            expr = expr.replace(/sin\(([^)]+)\)/g, function(match, num) {
+                return Math.sin(eval(num) * Math.PI / 180);
+            });
+            expr = expr.replace(/cos\(([^)]+)\)/g, function(match, num) {
+                return Math.cos(eval(num) * Math.PI / 180);
+            });
+            expr = expr.replace(/tan\(([^)]+)\)/g, function(match, num) {
+                return Math.tan(eval(num) * Math.PI / 180);
+            });
+            
+            // معالجة الجذور والأسس
+            expr = expr.replace(/√\(([^)]+)\)/g, "Math.sqrt($1)");
+            expr = expr.replace(/(\d+)²/g, "Math.pow($1,2)");
+            expr = expr.replace(/\(([^)]+)\)²/g, "Math.pow($1,2)");
+
+            let result = eval(expr);
+            
+            // ضبط دقة الأرقام العشرية الطويلة
+            if (!Number.isInteger(result)) {
+                result = Math.round(result * 10000000) / 10000000;
+            }
+            
+            display.innerText = result;
+            isReset = true;
+        } catch (error) {
+            display.innerText = 'Error';
+            isReset = true;
+        }
+    }
+</script>
+
+</body>
+</html>
